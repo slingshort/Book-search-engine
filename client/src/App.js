@@ -9,7 +9,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/setContext';
+import { setContext } from '@apollo/client/link/context';
 
 // GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -35,7 +35,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider>
+    <ApolloProvider client={client}>
       <Router>
         <>
           <Navbar />
